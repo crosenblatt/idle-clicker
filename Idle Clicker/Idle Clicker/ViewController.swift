@@ -15,6 +15,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var cookieButton: UIButton!
     @IBOutlet weak var cpcLabel: UILabel!
     @IBOutlet weak var cpsLabel: UILabel!
+    @IBOutlet weak var upgradeOneButton: UIButton!
+    @IBOutlet weak var upgradeTwoButton: UIButton!
     
     //MARK: Properties
     var player:Player?
@@ -24,22 +26,56 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //Load
         player = Player()
-        print("player loaded")
-        upgradeOne = Upgrade(cps: 0.0, cpc: 1.0, price: 2)
-        upgradeTwo = Upgrade(cps: 1.0, cpc: 0.0, price: 5)
+        
+        upgradeOne = Upgrade(cps: 0.0, cpc: 1.0, price: 2.0)
+        upgradeTwo = Upgrade(cps: 1.0, cpc: 0.0, price: 5.0)
+        
+        upgradeOneButton.tag = 1
+        upgradeTwoButton.tag = 2
+        
+        upgradeOneButton.addTarget(self, action: #selector(upgradePurchased), for: UIControlEvents.touchUpInside)
+        upgradeTwoButton.addTarget(self, action: #selector(upgradePurchased), for: UIControlEvents.touchUpInside)
+        
+        
         timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateTotal), userInfo: nil, repeats: true)
-        print("timer started")
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
 
-    //MARK: IBActions
+    //MARK: IBActions and Button Taps
     @IBAction func cookieClick(_ sender: Any) {
         player!.totalCookies! += player!.cpc!
         cookieCounter.text = "\(player!.totalCookies!) Cookies"
+    }
+    
+    @objc func upgradePurchased(sender: UIButton) {
+        switch sender.tag {
+        case 1:
+            if player!.totalCookies! >= upgradeOne!.cost! {
+                player!.cpc! += 1
+                player!.totalCookies! -= upgradeOne!.cost!
+                updateTotal()
+                updateCPC()
+            } else {
+                break
+            }
+        case 2:
+            if player!.totalCookies! >= upgradeTwo!.cost! {
+                player!.cps! += 1
+                player!.totalCookies! -= upgradeTwo!.cost!
+                updateTotal()
+                updateCPS()
+            } else {
+                break
+            }
+        default:
+            print("it broke")
+        }
     }
     
     //MARK: Update Labels
@@ -74,9 +110,9 @@ class Player {
 class Upgrade {
     var cpsBoost:Float?
     var cpcBoost:Float?
-    var cost:Int?
+    var cost:Float?
     
-    init(cps: Float, cpc: Float, price: Int) {
+    init(cps: Float, cpc: Float, price: Float) {
         cpsBoost = cps
         cpcBoost = cpc
         cost = price

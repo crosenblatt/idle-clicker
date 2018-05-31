@@ -84,6 +84,8 @@
                         <outlet property="cookieCounter" destination="hod-ZP-Bch" id="rXD-lF-dRD"/>
                         <outlet property="cpcLabel" destination="GcM-T1-f8O" id="qZx-XC-5FU"/>
                         <outlet property="cpsLabel" destination="kHf-3R-B8a" id="xuf-4i-VGl"/>
+                        <outlet property="upgradeOneButton" destination="rCy-x6-FYa" id="Ft8-Ms-q1X"/>
+                        <outlet property="upgradeTwoButton" destination="T20-xn-RWj" id="i2U-uv-mhJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
