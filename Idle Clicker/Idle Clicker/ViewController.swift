@@ -30,11 +30,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         //Load
-        if loadPlayer() == nil {
-            player = Player()
-        } else {
-            player = loadPlayer()
-        }
+        player = Player()
         
         upgradeOne = Upgrade(cps: 0.0, cpc: 1.0, price: 2.0)
         upgradeTwo = Upgrade(cps: 1.0, cpc: 0.0, price: 5.0)
@@ -47,7 +43,6 @@ class ViewController: UIViewController {
         
         //Start Timer
         timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateTotal), userInfo: nil, repeats: true)
-        saveTimer = Timer.scheduledTimer(timeInterval: 60, target: self, selector: #selector(savePlayer), userInfo: nil, repeats: true)
     }
 
     override func didReceiveMemoryWarning() {
@@ -104,73 +99,24 @@ class ViewController: UIViewController {
         cpsLabel!.text = "\(player!.cps!) CPS"
     }
     
-    //MARK: Save and Load
-    @objc private func savePlayer() {
-        let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(player!, toFile: Player.ArchiveURL.path)
-        if isSuccessfulSave {
-            print("save worked")
-        } else {
-            print("save failed")
-        }
-    }
-    
-    private func loadPlayer() -> Player? {
-        return NSKeyedUnarchiver.unarchiveObject(withFile: Player.ArchiveURL.path) as? Player
-    }
-    
 }
 
 //MARK: Extra Classes
-class Player: NSObject, NSCoding {
+class Player {
     var cps:Float?
     var cpc:Float?
     var totalCookies:Float?
     var upgradesOwned:[Int]?
     
-    override init() {
-        cps = 0
-        cpc = 0.1
-        totalCookies = 0
-        upgradesOwned = [Int](repeating: 0, count: 2)
-    }
-    
-    static let DocumentsDirectory = FileManager().urls(for: .documentDirectory, in: .userDomainMask).first!
-    static let ArchiveURL = DocumentsDirectory.appendingPathComponent("player")
-    
-    struct PropertyKey {
-        static let cps = "cps"
-        static let cpc = "cpc"
-        static let totalCookies = "totalCookies"
-        static let upgradesOwned = "upgradesOwned"
+    init() {
+        self.cps = 0
+        self.cpc = 0.1
+        self.totalCookies = 0
+        self.upgradesOwned = [Int](repeatElement(0, count: 2))
     }
     
     //MARK: NSCoding
-    func encode(with aCoder: NSCoder) {
-        aCoder.encode(cps, forKey: PropertyKey.cps)
-        aCoder.encode(cpc, forKey: PropertyKey.cpc)
-        aCoder.encode(totalCookies, forKey: PropertyKey.totalCookies)
-        aCoder.encode(upgradesOwned, forKey: PropertyKey.upgradesOwned)
-    }
     
-    required convenience init?(coder aDecoder: NSCoder) {
-        self.init()
-        guard var cps = aDecoder.decodeObject(forKey: PropertyKey.cps) as? Float else {
-            0
-            return
-        }
-        guard var cpc = aDecoder.decodeObject(forKey: PropertyKey.cpc) as? Float else {
-            0.1
-            return
-        }
-        guard var totalCookies = aDecoder.decodeObject(forKey: PropertyKey.totalCookies) as? Float else {
-            0
-            return
-        }
-        guard var upgradesOwned = aDecoder.decodeObject(forKey: PropertyKey.upgradesOwned) as? [Int] else {
-            [Int](repeating: 0, count: 2)
-            return
-        }
-    }
 }
 
 class Upgrade {
