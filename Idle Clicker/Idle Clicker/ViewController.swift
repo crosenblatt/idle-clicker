@@ -30,8 +30,14 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         //Load
-        player = Player()
+        if loadPlayer() != nil {
+            player = loadPlayer()
+        } else {
+            player = Player(cps: 0, cpc: 0.1, totalCookies: 0, upgradesOwned: [Int](repeatElement(0, count: 2)))
+        }
         
+        updateCPC()
+        updateCPS()
         upgradeOne = Upgrade(cps: 0.0, cpc: 1.0, price: 2.0)
         upgradeTwo = Upgrade(cps: 1.0, cpc: 0.0, price: 5.0)
         
@@ -41,8 +47,10 @@ class ViewController: UIViewController {
         upgradeOneButton.addTarget(self, action: #selector(upgradePurchased), for: UIControlEvents.touchUpInside)
         upgradeTwoButton.addTarget(self, action: #selector(upgradePurchased), for: UIControlEvents.touchUpInside)
         
-        //Start Timer
+        //Start Timers
         timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateTotal), userInfo: nil, repeats: true)
+        
+        saveTimer = Timer.scheduledTimer(timeInterval: 30, target: self, selector: #selector(savePlayer), userInfo: nil, repeats: true)
     }
 
     override func didReceiveMemoryWarning() {
@@ -99,24 +107,54 @@ class ViewController: UIViewController {
         cpsLabel!.text = "\(player!.cps!) CPS"
     }
     
+    //MARK: Save and Load
+    @objc private func savePlayer() {
+        let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(player!, toFile: Player.ArchiveURL.path)
+        
+        if isSuccessfulSave {
+            print("saved")
+        } else {
+            print("save failed")
+        }
+    }
+    
+    private func loadPlayer() -> Player? {
+        return NSKeyedUnarchiver.unarchiveObject(withFile: Player.ArchiveURL.path) as? Player
+    }
 }
 
 //MARK: Extra Classes
-class Player {
+class Player: NSObject, NSCoding {
     var cps:Float?
     var cpc:Float?
     var totalCookies:Float?
     var upgradesOwned:[Int]?
     
-    init() {
-        self.cps = 0
-        self.cpc = 0.1
-        self.totalCookies = 0
-        self.upgradesOwned = [Int](repeatElement(0, count: 2))
+    static let DocumentsDirectory = FileManager().urls(for: .documentDirectory, in: .userDomainMask).first!
+    static let ArchiveURL = DocumentsDirectory.appendingPathComponent("player")
+    
+    init(cps: Float, cpc: Float, totalCookies: Float, upgradesOwned: [Int]) {
+        self.cps = cps
+        self.cpc = cpc
+        self.totalCookies = totalCookies
+        self.upgradesOwned = upgradesOwned
     }
     
     //MARK: NSCoding
+    func encode(with aCoder: NSCoder) {
+        aCoder.encode(cps, forKey: "cps")
+        aCoder.encode(cpc, forKey: "cpc")
+        aCoder.encode(totalCookies, forKey: "totalCookies")
+        aCoder.encode(upgradesOwned, forKey: "upgradesOwned")
+    }
     
+    required init?(coder aDecoder: NSCoder) {
+        self.cps = aDecoder.decodeObject(forKey: "cps") as? Float
+        self.cpc = aDecoder.decodeObject(forKey: "cpc") as? Float
+        self.totalCookies = aDecoder.decodeObject(forKey: "totalCookies") as? Float
+        self.upgradesOwned = aDecoder.decodeObject(forKey: "upgradesOwned") as? [Int]
+        super.init()
+    }
 }
 
 class Upgrade {
