@@ -57,7 +57,8 @@ class ViewController: UIViewController {
         switch sender.tag {
         case 1:
             if player!.totalCookies! >= upgradeOne!.cost! {
-                player!.cpc! += 1
+                player!.upgradesOwned![0] += 1
+                player!.cpc! += upgradeOne!.cpcBoost!
                 player!.totalCookies! -= upgradeOne!.cost!
                 updateTotal()
                 updateCPC()
@@ -66,8 +67,11 @@ class ViewController: UIViewController {
             }
         case 2:
             if player!.totalCookies! >= upgradeTwo!.cost! {
-                player!.cps! += 1
+                print("before: \(player!.totalCookies!)")
+                player!.upgradesOwned![1] += 1
+                player!.cps! += upgradeTwo!.cpsBoost!
                 player!.totalCookies! -= upgradeTwo!.cost!
+                print("after: \(player!.totalCookies!)")
                 updateTotal()
                 updateCPS()
             } else {
@@ -99,11 +103,13 @@ class Player {
     var cps:Float?
     var cpc:Float?
     var totalCookies:Float?
+    var upgradesOwned:[Int]?
     
     init() {
         cps = 0
         cpc = 0.1
         totalCookies = 0
+        upgradesOwned = [Int](repeating: 0, count: 2)
     }
 }
 
