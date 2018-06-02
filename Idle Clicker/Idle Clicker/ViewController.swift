@@ -65,10 +65,18 @@ class ViewController: UIViewController {
     }
     
     @IBAction func resetAction(_ sender: Any) {
+        let alert = UIAlertController(title: "Are you sure you want to reset?", message: "All progress will be lost. This is irreversible.", preferredStyle: UIAlertControllerStyle.alert)
+        alert.addAction(UIAlertAction(title: "Yes", style: UIAlertActionStyle.default, handler: resetConfirmed))
+        alert.addAction(UIAlertAction(title: "No", style: UIAlertActionStyle.default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    func resetConfirmed(alert: UIAlertAction!) {
         player = Player(cps: 0, cpc: 0.1, totalCookies: 0, upgradesOwned: [Int](repeating: 0, count: 2))
         updateTotal()
         updateCPS()
         updateCPC()
+        savePlayer()
     }
     
     //Purchase an Upgrade
