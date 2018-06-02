@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Idle Clicker/ViewController.swift"
-            timestampString = "549572332.282341"
+            timestampString = "549653822.284323"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "138"
-            endingLineNumber = "138"
+            startingLineNumber = "145"
+            endingLineNumber = "145"
             landmarkName = "init(cps:cpc:totalCookies:upgradesOwned:)"
             landmarkType = "7">
          </BreakpointContent>

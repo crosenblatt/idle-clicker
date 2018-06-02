@@ -38,6 +38,7 @@ class ViewController: UIViewController {
         
         updateCPC()
         updateCPS()
+        
         upgradeOne = Upgrade(cps: 0.0, cpc: 1.0, price: 2.0)
         upgradeTwo = Upgrade(cps: 1.0, cpc: 0.0, price: 5.0)
         
@@ -61,6 +62,13 @@ class ViewController: UIViewController {
     @IBAction func cookieClick(_ sender: Any) {
         player!.totalCookies! += player!.cpc!
         cookieCounter.text = "\(player!.totalCookies!) Cookies"
+    }
+    
+    @IBAction func resetAction(_ sender: Any) {
+        player = Player(cps: 0, cpc: 0.1, totalCookies: 0, upgradesOwned: [Int](repeating: 0, count: 2))
+        updateTotal()
+        updateCPS()
+        updateCPC()
     }
     
     //Purchase an Upgrade
