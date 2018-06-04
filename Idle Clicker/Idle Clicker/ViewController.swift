@@ -71,6 +71,13 @@ class ViewController: UIViewController {
         self.present(alert, animated: true, completion: nil)
     }
     
+    @IBAction func saveAction(_ sender: Any) {
+        savePlayer()
+        let alert = UIAlertController(title: "Progress Saved", message: nil, preferredStyle: UIAlertControllerStyle.alert)
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+    }
+    
     func resetConfirmed(alert: UIAlertAction!) {
         player = Player(cps: 0, cpc: 0.1, totalCookies: 0, upgradesOwned: [Int](repeating: 0, count: 2))
         updateTotal()
@@ -110,8 +117,19 @@ class ViewController: UIViewController {
     //MARK: Update Labels
     @objc func updateTotal() {
         player!.totalCookies! += player!.cps!
-        cookieCounter!.text = "\(player!.totalCookies!) Cookies"
         cookieCounter!.text = String(format: "%.1f Cookies", player!.totalCookies!)
+        
+        if player!.totalCookies! < upgradeOne!.cost! {
+            upgradeOneButton.isEnabled = false
+        } else {
+            upgradeOneButton.isEnabled = true
+        }
+        
+        if player!.totalCookies! < upgradeTwo!.cost! {
+            upgradeTwoButton.isEnabled = false
+        } else {
+            upgradeTwoButton.isEnabled = true
+        }
     }
     
     func updateCPC() {
