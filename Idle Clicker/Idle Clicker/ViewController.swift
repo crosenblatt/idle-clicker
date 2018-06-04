@@ -87,7 +87,6 @@ class ViewController: UIViewController {
                 player!.upgradesOwned![0] += 1
                 player!.cpc! += upgradeOne!.cpcBoost!
                 player!.totalCookies! -= upgradeOne!.cost!
-                updateTotal()
                 updateCPC()
             } else {
                 break
@@ -99,7 +98,6 @@ class ViewController: UIViewController {
                 player!.cps! += upgradeTwo!.cpsBoost!
                 player!.totalCookies! -= upgradeTwo!.cost!
                 print("after: \(player!.totalCookies!)")
-                updateTotal()
                 updateCPS()
             } else {
                 break
@@ -113,6 +111,7 @@ class ViewController: UIViewController {
     @objc func updateTotal() {
         player!.totalCookies! += player!.cps!
         cookieCounter!.text = "\(player!.totalCookies!) Cookies"
+        cookieCounter!.text = String(format: "%.1f Cookies", player!.totalCookies!)
     }
     
     func updateCPC() {
