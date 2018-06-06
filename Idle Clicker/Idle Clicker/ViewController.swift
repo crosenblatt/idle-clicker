@@ -26,7 +26,8 @@ class ViewController: UIViewController {
     var upgradeTwo:Upgrade?
     var timer = Timer()
     var saveTimer = Timer()
-    var audioPlayer:AVAudioPlayer!
+    var popPlayer:AVAudioPlayer!
+    var purchasePlayer:AVAudioPlayer!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,10 +54,18 @@ class ViewController: UIViewController {
         upgradeTwoButton.addTarget(self, action: #selector(upgradePurchased), for: UIControlEvents.touchUpInside)
         
         //Sound Loading
-        let soundURL = Bundle.main.url(forResource: "PopSound", withExtension: "flac")
+        let popURL = Bundle.main.url(forResource: "PopSound", withExtension: "flac")
         do {
-            audioPlayer = try AVAudioPlayer(contentsOf: soundURL!)
-            audioPlayer.prepareToPlay()
+            popPlayer = try AVAudioPlayer(contentsOf: popURL!)
+            popPlayer.prepareToPlay()
+        } catch let error as NSError {
+            print(error.debugDescription)
+        }
+        
+        let purchaseURL = Bundle.main.url(forResource: "Purchase", withExtension: "wav")
+        do {
+            purchasePlayer = try AVAudioPlayer(contentsOf: purchaseURL!)
+            purchasePlayer.prepareToPlay()
         } catch let error as NSError {
             print(error.debugDescription)
         }
@@ -74,7 +83,7 @@ class ViewController: UIViewController {
     //MARK: IBActions and Button Taps
     @IBAction func cookieClick(_ sender: Any) {
         //Play Sound
-        audioPlayer.play()
+        popPlayer.play()
         
         //Animate Button
         UIView.animate(withDuration: 0.05, animations: {
@@ -118,6 +127,9 @@ class ViewController: UIViewController {
     
     //Purchase an Upgrade
     @objc func upgradePurchased(sender: UIButton) {
+        //Play Sound
+        purchasePlayer.play()
+        
         //Update stats based on which button was clicked
         switch sender.tag {
         case 1:
