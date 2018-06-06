@@ -32,6 +32,9 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //Background Image
+        self.view.backgroundColor = UIColor(patternImage: UIImage(named: "Blue.jpg")!)
+        
         //Load
         if loadPlayer() != nil {
             player = loadPlayer()
@@ -72,7 +75,6 @@ class ViewController: UIViewController {
         
         //Start Timers
         timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateTotal), userInfo: nil, repeats: true)
-        
         saveTimer = Timer.scheduledTimer(timeInterval: 30, target: self, selector: #selector(savePlayer), userInfo: nil, repeats: true)
     }
 
