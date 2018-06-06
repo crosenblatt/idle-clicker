@@ -8,6 +8,7 @@
 
 import UIKit
 import os.log
+import AVFoundation
 
 class ViewController: UIViewController {
     
@@ -25,6 +26,7 @@ class ViewController: UIViewController {
     var upgradeTwo:Upgrade?
     var timer = Timer()
     var saveTimer = Timer()
+    var audioPlayer:AVAudioPlayer!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,9 +38,11 @@ class ViewController: UIViewController {
             player = Player(cps: 0, cpc: 0.1, totalCookies: 0, upgradesOwned: [Int](repeatElement(0, count: 2)))
         }
         
+        //Set Labels
         updateCPC()
         updateCPS()
         
+        //Set Upgrades
         upgradeOne = Upgrade(cps: 0.0, cpc: 1.0, price: 2.0)
         upgradeTwo = Upgrade(cps: 1.0, cpc: 0.0, price: 5.0)
         
@@ -47,6 +51,15 @@ class ViewController: UIViewController {
         
         upgradeOneButton.addTarget(self, action: #selector(upgradePurchased), for: UIControlEvents.touchUpInside)
         upgradeTwoButton.addTarget(self, action: #selector(upgradePurchased), for: UIControlEvents.touchUpInside)
+        
+        //Sound Loading
+        let soundURL = Bundle.main.url(forResource: "PopSound", withExtension: "flac")
+        do {
+            audioPlayer = try AVAudioPlayer(contentsOf: soundURL!)
+            audioPlayer.prepareToPlay()
+        } catch let error as NSError {
+            print(error.debugDescription)
+        }
         
         //Start Timers
         timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateTotal), userInfo: nil, repeats: true)
@@ -60,17 +73,33 @@ class ViewController: UIViewController {
 
     //MARK: IBActions and Button Taps
     @IBAction func cookieClick(_ sender: Any) {
+        //Play Sound
+        audioPlayer.play()
+        
+        //Animate Button
+        UIView.animate(withDuration: 0.05, animations: {
+            self.cookieButton.transform = CGAffineTransform(scaleX: 0.95, y: 0.95)
+        }, completion: { _ in
+            UIView.animate(withDuration: 0.05) {
+                self.cookieButton.transform = CGAffineTransform.identity
+            }
+        })
+        
+        //Update Label
         player!.totalCookies! += player!.cpc!
         cookieCounter.text = "\(player!.totalCookies!) Cookies"
     }
     
+    //Reset Button
     @IBAction func resetAction(_ sender: Any) {
+        //Warning
         let alert = UIAlertController(title: "Are you sure you want to reset?", message: "All progress will be lost. This is irreversible.", preferredStyle: UIAlertControllerStyle.alert)
         alert.addAction(UIAlertAction(title: "Yes", style: UIAlertActionStyle.default, handler: resetConfirmed))
         alert.addAction(UIAlertAction(title: "No", style: UIAlertActionStyle.default, handler: nil))
         self.present(alert, animated: true, completion: nil)
     }
     
+    //Save Button
     @IBAction func saveAction(_ sender: Any) {
         savePlayer()
         let alert = UIAlertController(title: "Progress Saved", message: nil, preferredStyle: UIAlertControllerStyle.alert)
@@ -78,6 +107,7 @@ class ViewController: UIViewController {
         self.present(alert, animated: true, completion: nil)
     }
     
+    //Reset Player
     func resetConfirmed(alert: UIAlertAction!) {
         player = Player(cps: 0, cpc: 0.1, totalCookies: 0, upgradesOwned: [Int](repeating: 0, count: 2))
         updateTotal()
@@ -88,6 +118,7 @@ class ViewController: UIViewController {
     
     //Purchase an Upgrade
     @objc func upgradePurchased(sender: UIButton) {
+        //Update stats based on which button was clicked
         switch sender.tag {
         case 1:
             if player!.totalCookies! >= upgradeOne!.cost! {
@@ -116,9 +147,11 @@ class ViewController: UIViewController {
     
     //MARK: Update Labels
     @objc func updateTotal() {
+        //Update total based on CPS
         player!.totalCookies! += player!.cps!
         cookieCounter!.text = String(format: "%.1f Cookies", player!.totalCookies!)
         
+        //Enable or Disable Labels
         if player!.totalCookies! < upgradeOne!.cost! {
             upgradeOneButton.isEnabled = false
         } else {
@@ -132,10 +165,12 @@ class ViewController: UIViewController {
         }
     }
     
+    //Update CPC Label
     func updateCPC() {
         cpcLabel!.text = "\(player!.cpc!) CPC"
     }
     
+    //Update CPS Label
     func updateCPS() {
         cpsLabel!.text = "\(player!.cps!) CPS"
     }

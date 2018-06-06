@@ -12,6 +12,7 @@
 		7D71F07520C059090077D07D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7D71F07320C059090077D07D /* Main.storyboard */; };
 		7D71F07720C0590B0077D07D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7D71F07620C0590B0077D07D /* Assets.xcassets */; };
 		7D71F07A20C0590B0077D07D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7D71F07820C0590B0077D07D /* LaunchScreen.storyboard */; };
+		7DD99A4720C84DED00D94A49 /* PopSound.flac in Resources */ = {isa = PBXBuildFile; fileRef = 7DD99A4620C84DED00D94A49 /* PopSound.flac */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		7D71F07620C0590B0077D07D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7D71F07920C0590B0077D07D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7D71F07B20C0590B0077D07D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7DD99A4620C84DED00D94A49 /* PopSound.flac */ = {isa = PBXFileReference; lastKnownFileType = file; path = PopSound.flac; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +56,7 @@
 		7D71F06E20C059080077D07D /* Idle Clicker */ = {
 			isa = PBXGroup;
 			children = (
+				7DD99A4620C84DED00D94A49 /* PopSound.flac */,
 				7D71F06F20C059080077D07D /* AppDelegate.swift */,
 				7D71F07120C059080077D07D /* ViewController.swift */,
 				7D71F07320C059090077D07D /* Main.storyboard */,
@@ -123,6 +126,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7D71F07A20C0590B0077D07D /* LaunchScreen.storyboard in Resources */,
+				7DD99A4720C84DED00D94A49 /* PopSound.flac in Resources */,
 				7D71F07720C0590B0077D07D /* Assets.xcassets in Resources */,
 				7D71F07520C059090077D07D /* Main.storyboard in Resources */,
 			);
