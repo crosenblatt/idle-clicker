@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina4_7" orientation="portrait">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -15,38 +15,39 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Idle_Clicker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="7S2-Hy-4ll">
-                                <rect key="frame" x="20" y="50" width="335" height="367"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="7S2-Hy-4ll">
+                                <rect key="frame" x="20" y="50" width="374" height="436"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="jEw-dU-5ET">
-                                        <rect key="frame" x="0.0" y="0.0" width="335" height="20.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="17"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.1 CPC" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GcM-T1-f8O">
-                                                <rect key="frame" x="0.0" y="0.0" width="50.5" height="20.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="50.333333333333336" height="17"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.0 Cookies" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hod-ZP-Bch">
-                                                <rect key="frame" x="128" y="0.0" width="90" height="20.5"/>
+                                                <rect key="frame" x="147.33333333333334" y="0.0" width="90" height="17"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0 CPS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kHf-3R-B8a">
-                                                <rect key="frame" x="295" y="0.0" width="40" height="20.5"/>
+                                                <rect key="frame" x="334" y="0.0" width="40" height="17"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
                                     </stackView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RBs-W4-zEJ">
-                                        <rect key="frame" x="0.0" y="20.5" width="335" height="346.5"/>
-                                        <state key="normal" title="Click For More Cookies"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RBs-W4-zEJ">
+                                        <rect key="frame" x="0.0" y="37" width="374" height="399"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <state key="normal" title="Click For More Cookies" image="Cookie"/>
                                         <connections>
                                             <action selector="cookieClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Auf-ia-9Nr"/>
                                         </connections>
@@ -54,30 +55,30 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="ui4-0s-cY6">
-                                <rect key="frame" x="20" y="420" width="335" height="30"/>
+                                <rect key="frame" x="20" y="511" width="374" height="30"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rCy-x6-FYa">
-                                        <rect key="frame" x="0.0" y="0.0" width="167.5" height="30"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="187" height="30"/>
                                         <state key="normal" title="+1 CPC (Cost 2)"/>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T20-xn-RWj">
-                                        <rect key="frame" x="167.5" y="0.0" width="167.5" height="30"/>
+                                        <rect key="frame" x="187" y="0.0" width="187" height="30"/>
                                         <state key="normal" title="+1 CPS (Cost 5)"/>
                                     </button>
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="3ye-w8-f1q">
-                                <rect key="frame" x="20" y="617" width="335" height="30"/>
+                                <rect key="frame" x="20" y="686" width="374" height="30"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="58g-Nj-BJs">
-                                        <rect key="frame" x="0.0" y="0.0" width="167.5" height="30"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="187" height="30"/>
                                         <state key="normal" title="Reset"/>
                                         <connections>
                                             <action selector="resetAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="7uh-UG-7nT"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zxy-b6-Tjg">
-                                        <rect key="frame" x="167.5" y="0.0" width="167.5" height="30"/>
+                                        <rect key="frame" x="187" y="0.0" width="187" height="30"/>
                                         <state key="normal" title="Save"/>
                                         <connections>
                                             <action selector="saveAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="EmV-ri-zNl"/>
@@ -92,11 +93,11 @@
                             <constraint firstItem="7S2-Hy-4ll" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="30" id="UVa-tl-9Cz"/>
                             <constraint firstItem="7S2-Hy-4ll" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="agT-Bw-qHz"/>
                             <constraint firstItem="3ye-w8-f1q" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="d8u-bJ-3Md"/>
+                            <constraint firstItem="ui4-0s-cY6" firstAttribute="top" secondItem="7S2-Hy-4ll" secondAttribute="bottom" constant="25" id="dWf-NL-0rA"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="7S2-Hy-4ll" secondAttribute="bottom" constant="250" id="du5-YU-BzX"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="3ye-w8-f1q" secondAttribute="bottom" constant="20" id="fo2-Cq-qC3"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="7S2-Hy-4ll" secondAttribute="trailing" constant="20" id="hWK-z8-wtM"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ui4-0s-cY6" secondAttribute="trailing" constant="20" id="oZy-8z-xng"/>
-                            <constraint firstItem="ui4-0s-cY6" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="400" id="puV-T3-gY1"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="3ye-w8-f1q" secondAttribute="trailing" constant="20" id="v6p-rX-cpg"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -115,4 +116,7 @@
             <point key="canvasLocation" x="-740" y="-19"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Cookie" width="974" height="962"/>
+    </resources>
 </document>
