@@ -54,19 +54,36 @@
                                     </button>
                                 </subviews>
                             </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="ui4-0s-cY6">
-                                <rect key="frame" x="20" y="511" width="374" height="30"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="8Kk-b2-YmU">
+                                <rect key="frame" x="20" y="506" width="374" height="130"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rCy-x6-FYa">
-                                        <rect key="frame" x="0.0" y="0.0" width="187" height="30"/>
-                                        <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="15"/>
-                                        <state key="normal" title="+1 CPC (Cost 2)"/>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T20-xn-RWj">
-                                        <rect key="frame" x="187" y="0.0" width="187" height="30"/>
-                                        <state key="normal" title="+1 CPS (Cost 5)"/>
-                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Upgrade Store" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tau-On-m1Q">
+                                        <rect key="frame" x="108.66666666666667" y="0.0" width="156.66666666666663" height="30"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="ui4-0s-cY6">
+                                        <rect key="frame" x="20" y="40" width="334" height="90"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rCy-x6-FYa">
+                                                <rect key="frame" x="0.0" y="30" width="157" height="30"/>
+                                                <color key="backgroundColor" red="0.56926820937752121" green="0.56926820937752121" blue="0.56926820937752121" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="15"/>
+                                                <state key="normal" title="+1 CPC (Cost 2)"/>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T20-xn-RWj">
+                                                <rect key="frame" x="177" y="30" width="157" height="30"/>
+                                                <color key="backgroundColor" red="0.5692682094" green="0.5692682094" blue="0.5692682094" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <state key="normal" title="+1 CPS (Cost 5)"/>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstItem="ui4-0s-cY6" firstAttribute="leading" secondItem="8Kk-b2-YmU" secondAttribute="leading" constant="20" id="8iD-ZH-0h8"/>
+                                    <constraint firstAttribute="trailing" secondItem="ui4-0s-cY6" secondAttribute="trailing" constant="20" id="QUw-dh-PPj"/>
+                                </constraints>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="3ye-w8-f1q">
                                 <rect key="frame" x="20" y="686" width="374" height="30"/>
@@ -88,17 +105,19 @@
                                 </subviews>
                             </stackView>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.0" green="0.32852089410000002" blue="0.57488495110000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="ui4-0s-cY6" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="P73-IN-hOf"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="8Kk-b2-YmU" secondAttribute="trailing" constant="20" id="3Q0-1O-Qr2"/>
+                            <constraint firstItem="8Kk-b2-YmU" firstAttribute="top" secondItem="7S2-Hy-4ll" secondAttribute="bottom" constant="20" id="3zi-h0-gYf"/>
                             <constraint firstItem="7S2-Hy-4ll" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="30" id="UVa-tl-9Cz"/>
                             <constraint firstItem="7S2-Hy-4ll" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="agT-Bw-qHz"/>
                             <constraint firstItem="3ye-w8-f1q" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="d8u-bJ-3Md"/>
-                            <constraint firstItem="ui4-0s-cY6" firstAttribute="top" secondItem="7S2-Hy-4ll" secondAttribute="bottom" constant="25" id="dWf-NL-0rA"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="7S2-Hy-4ll" secondAttribute="bottom" constant="250" id="du5-YU-BzX"/>
+                            <constraint firstItem="8Kk-b2-YmU" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="eqE-fk-BFC"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="3ye-w8-f1q" secondAttribute="bottom" constant="20" id="fo2-Cq-qC3"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="7S2-Hy-4ll" secondAttribute="trailing" constant="20" id="hWK-z8-wtM"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ui4-0s-cY6" secondAttribute="trailing" constant="20" id="oZy-8z-xng"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="8Kk-b2-YmU" secondAttribute="bottom" constant="100" id="j2o-LM-LaC"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="3ye-w8-f1q" secondAttribute="trailing" constant="20" id="v6p-rX-cpg"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>

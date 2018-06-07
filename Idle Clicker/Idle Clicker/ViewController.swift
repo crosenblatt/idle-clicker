@@ -32,9 +32,6 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //Background Image
-        self.view.backgroundColor = UIColor(patternImage: UIImage(named: "Blue.jpg")!)
-        
         //Load
         if loadPlayer() != nil {
             player = loadPlayer()
