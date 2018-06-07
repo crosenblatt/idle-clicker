@@ -53,6 +53,10 @@ class ViewController: UIViewController {
         upgradeOneButton.addTarget(self, action: #selector(upgradePurchased), for: UIControlEvents.touchUpInside)
         upgradeTwoButton.addTarget(self, action: #selector(upgradePurchased), for: UIControlEvents.touchUpInside)
         
+        //Button Formatting
+        upgradeOneButton.layer.cornerRadius = 5
+        upgradeTwoButton.layer.cornerRadius = 5
+        
         //Sound Loading
         let popURL = Bundle.main.url(forResource: "PopSound", withExtension: "flac")
         do {
