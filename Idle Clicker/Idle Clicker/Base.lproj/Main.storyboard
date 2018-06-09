@@ -64,21 +64,29 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="ui4-0s-cY6">
-                                        <rect key="frame" x="20" y="40" width="334" height="90"/>
+                                        <rect key="frame" x="20" y="40" width="334" height="50"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rCy-x6-FYa">
-                                                <rect key="frame" x="0.0" y="30" width="157" height="30"/>
+                                                <rect key="frame" x="0.0" y="10" width="157" height="30"/>
                                                 <color key="backgroundColor" red="0.56926820937752121" green="0.56926820937752121" blue="0.56926820937752121" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="15"/>
                                                 <state key="normal" title="+1 CPC (Cost 2)"/>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T20-xn-RWj">
-                                                <rect key="frame" x="177" y="30" width="157" height="30"/>
+                                                <rect key="frame" x="177" y="10" width="157" height="30"/>
                                                 <color key="backgroundColor" red="0.5692682094" green="0.5692682094" blue="0.5692682094" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <state key="normal" title="+1 CPS (Cost 5)"/>
                                             </button>
                                         </subviews>
                                     </stackView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mL6-aA-4y2">
+                                        <rect key="frame" x="36" y="100" width="302" height="30"/>
+                                        <color key="backgroundColor" red="0.5692682094" green="0.5692682094" blue="0.5692682094" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <state key="normal" title="Level Up (+1% CPS Boost, Cost 10,000,000)"/>
+                                        <connections>
+                                            <action selector="levelUp:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Nhk-5j-gHU"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="ui4-0s-cY6" firstAttribute="leading" secondItem="8Kk-b2-YmU" secondAttribute="leading" constant="20" id="8iD-ZH-0h8"/>
@@ -127,6 +135,7 @@
                         <outlet property="cookieCounter" destination="hod-ZP-Bch" id="rXD-lF-dRD"/>
                         <outlet property="cpcLabel" destination="GcM-T1-f8O" id="qZx-XC-5FU"/>
                         <outlet property="cpsLabel" destination="kHf-3R-B8a" id="xuf-4i-VGl"/>
+                        <outlet property="levelUpButton" destination="mL6-aA-4y2" id="fmo-H2-mdQ"/>
                         <outlet property="upgradeOneButton" destination="rCy-x6-FYa" id="Ft8-Ms-q1X"/>
                         <outlet property="upgradeTwoButton" destination="T20-xn-RWj" id="i2U-uv-mhJ"/>
                     </connections>

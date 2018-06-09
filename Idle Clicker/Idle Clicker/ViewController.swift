@@ -19,6 +19,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var cpsLabel: UILabel!
     @IBOutlet weak var upgradeOneButton: UIButton!
     @IBOutlet weak var upgradeTwoButton: UIButton!
+    @IBOutlet weak var levelUpButton: UIButton!
     
     //MARK: Properties
     var player:Player?
@@ -36,7 +37,7 @@ class ViewController: UIViewController {
         if loadPlayer() != nil {
             player = loadPlayer()
         } else {
-            player = Player(cps: 0, cpc: 0.1, totalCookies: 0, upgradesOwned: [Int](repeatElement(0, count: 2)))
+            player = Player(cps: 0, cpc: 0.1, totalCookies: 0, level: 0, upgradesOwned: [Int](repeatElement(0, count: 2)))
         }
         
         //Set Labels
@@ -121,7 +122,7 @@ class ViewController: UIViewController {
     
     //Reset Player
     func resetConfirmed(alert: UIAlertAction!) {
-        player = Player(cps: 0, cpc: 0.1, totalCookies: 0, upgradesOwned: [Int](repeating: 0, count: 2))
+        player = Player(cps: 0, cpc: 0.1, totalCookies: 0, level: 0, upgradesOwned: [Int](repeating: 0, count: 2))
         updateTotal()
         updateCPS()
         updateCPC()
@@ -160,6 +161,24 @@ class ViewController: UIViewController {
         }
     }
     
+    //MARK: Level Up
+    @IBAction func levelUp(_ sender: Any) {
+        let alert = UIAlertController(title: "Are you sure you want to level?", message: "All progress will be lost, but you will have a permanent CPS Boost.", preferredStyle: UIAlertControllerStyle.alert)
+        alert.addAction(UIAlertAction(title: "Yes", style: UIAlertActionStyle.default, handler: levelUpConfirmed))
+        alert.addAction(UIAlertAction(title: "No", style: UIAlertActionStyle.default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    func levelUpConfirmed(alert: UIAlertAction!) {
+        let level = player!.level!
+        player = Player(cps: 0, cpc: 0.1, totalCookies: 0, level: level + 1, upgradesOwned: [Int](repeating: 0, count: 2))
+        updateTotal()
+        updateCPC()
+        updateCPS()
+        savePlayer()
+    }
+    
+    
     //MARK: Update Labels
     @objc func updateTotal() {
         //Update total based on CPS
@@ -177,6 +196,12 @@ class ViewController: UIViewController {
             upgradeTwoButton.isEnabled = false
         } else {
             upgradeTwoButton.isEnabled = true
+        }
+        
+        if player!.totalCookies! < 10000000 {
+            levelUpButton.isEnabled = false
+        } else {
+            levelUpButton.isEnabled = true
         }
     }
     
@@ -210,15 +235,17 @@ class ViewController: UIViewController {
 class Player: NSObject, NSCoding {
     var cps:Float?
     var cpc:Float?
+    var level:Int?
     var totalCookies:Float?
     var upgradesOwned:[Int]?
     
     static let DocumentsDirectory = FileManager().urls(for: .documentDirectory, in: .userDomainMask).first!
     static let ArchiveURL = DocumentsDirectory.appendingPathComponent("player")
     
-    init(cps: Float, cpc: Float, totalCookies: Float, upgradesOwned: [Int]) {
+    init(cps: Float, cpc: Float, totalCookies: Float, level: Int, upgradesOwned: [Int]) {
         self.cps = cps
         self.cpc = cpc
+        self.level = level
         self.totalCookies = totalCookies
         self.upgradesOwned = upgradesOwned
     }
@@ -227,6 +254,7 @@ class Player: NSObject, NSCoding {
     func encode(with aCoder: NSCoder) {
         aCoder.encode(cps, forKey: "cps")
         aCoder.encode(cpc, forKey: "cpc")
+        aCoder.encode(level, forKey: "level")
         aCoder.encode(totalCookies, forKey: "totalCookies")
         aCoder.encode(upgradesOwned, forKey: "upgradesOwned")
     }
@@ -234,6 +262,7 @@ class Player: NSObject, NSCoding {
     required init?(coder aDecoder: NSCoder) {
         self.cps = aDecoder.decodeObject(forKey: "cps") as? Float
         self.cpc = aDecoder.decodeObject(forKey: "cpc") as? Float
+        self.level = aDecoder.decodeObject(forKey: "level") as? Int
         self.totalCookies = aDecoder.decodeObject(forKey: "totalCookies") as? Float
         self.upgradesOwned = aDecoder.decodeObject(forKey: "upgradesOwned") as? [Int]
         super.init()
