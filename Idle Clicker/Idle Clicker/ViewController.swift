@@ -17,6 +17,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var cookieButton: UIButton!
     @IBOutlet weak var cpcLabel: UILabel!
     @IBOutlet weak var cpsLabel: UILabel!
+    @IBOutlet weak var levelLabel: UILabel!
     @IBOutlet weak var upgradeOneButton: UIButton!
     @IBOutlet weak var upgradeTwoButton: UIButton!
     @IBOutlet weak var levelUpButton: UIButton!
@@ -43,6 +44,7 @@ class ViewController: UIViewController {
         //Set Labels
         updateCPC()
         updateCPS()
+        updateLevel()
         
         //Set Upgrades
         upgradeOne = Upgrade(cps: 0.0, cpc: 1.0, price: 2.0)
@@ -50,6 +52,7 @@ class ViewController: UIViewController {
         
         upgradeOneButton.tag = 1
         upgradeTwoButton.tag = 2
+        levelUpButton.tag = 3
         
         upgradeOneButton.addTarget(self, action: #selector(upgradePurchased), for: UIControlEvents.touchUpInside)
         upgradeTwoButton.addTarget(self, action: #selector(upgradePurchased), for: UIControlEvents.touchUpInside)
@@ -126,6 +129,7 @@ class ViewController: UIViewController {
         updateTotal()
         updateCPS()
         updateCPC()
+        updateLevel()
         savePlayer()
     }
     
@@ -175,6 +179,7 @@ class ViewController: UIViewController {
         updateTotal()
         updateCPC()
         updateCPS()
+        updateLevel()
         savePlayer()
     }
     
@@ -182,7 +187,7 @@ class ViewController: UIViewController {
     //MARK: Update Labels
     @objc func updateTotal() {
         //Update total based on CPS
-        player!.totalCookies! += player!.cps!
+        player!.totalCookies! += player!.cps! + ((Float(player!.level!) / Float(100)) * player!.cps!)
         cookieCounter!.text = String(format: "%.1f Cookies", player!.totalCookies!)
         
         //Enable or Disable Labels
@@ -213,6 +218,11 @@ class ViewController: UIViewController {
     //Update CPS Label
     func updateCPS() {
         cpsLabel!.text = "\(player!.cps!) CPS"
+    }
+    
+    //Update Level Label
+    func updateLevel() {
+        levelLabel!.text = "Level \(player!.level!)"
     }
     
     //MARK: Save and Load

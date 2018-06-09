@@ -22,22 +22,28 @@
                                 <rect key="frame" x="20" y="50" width="374" height="436"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="jEw-dU-5ET">
-                                        <rect key="frame" x="0.0" y="0.0" width="374" height="17"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="20.333333333333332"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.1 CPC" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GcM-T1-f8O">
-                                                <rect key="frame" x="0.0" y="0.0" width="50.333333333333336" height="17"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="50.333333333333336" height="20.333333333333332"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.0 Cookies" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hod-ZP-Bch">
-                                                <rect key="frame" x="147.33333333333334" y="0.0" width="90" height="17"/>
+                                                <rect key="frame" x="96.666666666666686" y="0.0" width="90" height="20.333333333333332"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Level 0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DxO-OE-mZF">
+                                                <rect key="frame" x="232.99999999999997" y="0.0" width="54.666666666666657" height="20.333333333333332"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0 CPS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kHf-3R-B8a">
-                                                <rect key="frame" x="334" y="0.0" width="40" height="17"/>
+                                                <rect key="frame" x="334" y="0.0" width="40" height="20.333333333333332"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -45,7 +51,7 @@
                                         </subviews>
                                     </stackView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RBs-W4-zEJ">
-                                        <rect key="frame" x="0.0" y="37" width="374" height="399"/>
+                                        <rect key="frame" x="0.0" y="40.333333333333343" width="374" height="395.66666666666663"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                         <state key="normal" title="Click For More Cookies" image="Cookie"/>
                                         <connections>
@@ -135,6 +141,7 @@
                         <outlet property="cookieCounter" destination="hod-ZP-Bch" id="rXD-lF-dRD"/>
                         <outlet property="cpcLabel" destination="GcM-T1-f8O" id="qZx-XC-5FU"/>
                         <outlet property="cpsLabel" destination="kHf-3R-B8a" id="xuf-4i-VGl"/>
+                        <outlet property="levelLabel" destination="DxO-OE-mZF" id="Yfg-D2-vbR"/>
                         <outlet property="levelUpButton" destination="mL6-aA-4y2" id="fmo-H2-mdQ"/>
                         <outlet property="upgradeOneButton" destination="rCy-x6-FYa" id="Ft8-Ms-q1X"/>
                         <outlet property="upgradeTwoButton" destination="T20-xn-RWj" id="i2U-uv-mhJ"/>
