@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="cjD-ws-wJb">
     <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -10,10 +10,68 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Splash-->
+        <scene sceneID="aiE-OG-iN0">
+            <objects>
+                <viewController title="Splash" id="cjD-ws-wJb" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="AY8-Gh-shg">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Clicker Game" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f2q-6B-x1d">
+                                <rect key="frame" x="20" y="70" width="374" height="30"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5AR-Gj-YPG">
+                                <rect key="frame" x="100" y="353" width="214" height="38"/>
+                                <color key="backgroundColor" red="0.5692682094" green="0.5692682094" blue="0.5692682094" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="Start">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <segue destination="BYZ-38-t0r" kind="show" id="6pM-Z3-hPe"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VsU-N7-on2">
+                                <rect key="frame" x="100" y="416" width="214" height="36"/>
+                                <color key="backgroundColor" red="0.5692682094" green="0.5692682094" blue="0.5692682094" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="How To Play">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <segue destination="yQx-VF-iG0" kind="show" id="Jyu-8i-WI3"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.0" green="0.32852089410000002" blue="0.57488495110000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="5AR-Gj-YPG" firstAttribute="leading" secondItem="S7C-Bq-ZV8" secondAttribute="leading" constant="100" id="2jw-Cz-PfA"/>
+                            <constraint firstItem="S7C-Bq-ZV8" firstAttribute="trailing" secondItem="VsU-N7-on2" secondAttribute="trailing" constant="100" id="BOy-fl-tn7"/>
+                            <constraint firstItem="S7C-Bq-ZV8" firstAttribute="bottom" secondItem="5AR-Gj-YPG" secondAttribute="bottom" constant="345" id="Co9-U7-lEo"/>
+                            <constraint firstItem="VsU-N7-on2" firstAttribute="leading" secondItem="S7C-Bq-ZV8" secondAttribute="leading" constant="100" id="ET1-YK-FWU"/>
+                            <constraint firstItem="S7C-Bq-ZV8" firstAttribute="trailing" secondItem="5AR-Gj-YPG" secondAttribute="trailing" constant="100" id="K48-mE-MPX"/>
+                            <constraint firstItem="f2q-6B-x1d" firstAttribute="leading" secondItem="S7C-Bq-ZV8" secondAttribute="leading" constant="20" id="UUj-10-RPw"/>
+                            <constraint firstItem="S7C-Bq-ZV8" firstAttribute="bottom" secondItem="VsU-N7-on2" secondAttribute="bottom" constant="284" id="W14-bL-UUC"/>
+                            <constraint firstItem="VsU-N7-on2" firstAttribute="top" secondItem="5AR-Gj-YPG" secondAttribute="bottom" constant="25" id="WPd-Yd-YdD"/>
+                            <constraint firstItem="f2q-6B-x1d" firstAttribute="top" secondItem="S7C-Bq-ZV8" secondAttribute="top" constant="50" id="kto-ed-rCW"/>
+                            <constraint firstItem="S7C-Bq-ZV8" firstAttribute="trailing" secondItem="f2q-6B-x1d" secondAttribute="trailing" constant="20" id="no2-Hm-yYd"/>
+                            <constraint firstItem="5AR-Gj-YPG" firstAttribute="top" secondItem="f2q-6B-x1d" secondAttribute="bottom" constant="253" id="o5J-Ce-LAD"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="S7C-Bq-ZV8"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aaf-p4-L7R" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2343" y="-20"/>
+        </scene>
+        <!--Main-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Idle_Clicker" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Main" id="BYZ-38-t0r" customClass="ViewController" customModule="Idle_Clicker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -149,7 +207,22 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1262" y="-20"/>
+            <point key="canvasLocation" x="-1255" y="-150"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="oI8-Hz-Un7">
+            <objects>
+                <viewController id="yQx-VF-iG0" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="NAe-89-3i1">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="1ee-iC-qLX"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JZd-4w-JCh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1255" y="638"/>
         </scene>
     </scenes>
     <resources>
