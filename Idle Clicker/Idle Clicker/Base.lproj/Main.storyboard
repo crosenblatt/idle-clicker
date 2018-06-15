@@ -13,26 +13,29 @@
         <!--Splash-->
         <scene sceneID="aiE-OG-iN0">
             <objects>
-                <viewController title="Splash" id="cjD-ws-wJb" sceneMemberID="viewController">
+                <viewController title="Splash" id="cjD-ws-wJb" customClass="SplashViewController" customModule="Idle_Clicker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="AY8-Gh-shg">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Click-A-Cookie" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f2q-6B-x1d">
-                                <rect key="frame" x="20" y="70" width="374" height="30"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Click-A-Cookie" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f2q-6B-x1d">
+                                <rect key="frame" x="20" y="70" width="374" height="32"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="35"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5AR-Gj-YPG">
-                                <rect key="frame" x="100" y="353" width="214" height="38"/>
+                                <rect key="frame" x="100" y="355" width="214" height="36"/>
                                 <color key="backgroundColor" red="0.5692682094" green="0.5692682094" blue="0.5692682094" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="36" id="J5b-aM-DeQ"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal" title="Start">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <segue destination="BYZ-38-t0r" kind="show" id="6pM-Z3-hPe"/>
+                                    <segue destination="BYZ-38-t0r" kind="show" id="JEt-tm-oja"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VsU-N7-on2">
@@ -66,7 +69,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aaf-p4-L7R" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2228" y="135"/>
+            <point key="canvasLocation" x="-2591" y="-216"/>
         </scene>
         <!--Main-->
         <scene sceneID="tne-QT-ifu">
@@ -171,7 +174,7 @@
                                         <rect key="frame" x="124.66666666666666" y="0.0" width="124.66666666666666" height="30"/>
                                         <state key="normal" title="Home"/>
                                         <connections>
-                                            <segue destination="cjD-ws-wJb" kind="show" id="sEc-un-L9J"/>
+                                            <action selector="goHome:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ZRi-Dn-khA"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zxy-b6-Tjg">
@@ -214,18 +217,18 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1255" y="-182"/>
+            <point key="canvasLocation" x="-1800" y="-216"/>
         </scene>
         <!--Instructions-->
         <scene sceneID="oI8-Hz-Un7">
             <objects>
-                <viewController title="Instructions" id="yQx-VF-iG0" sceneMemberID="viewController">
+                <viewController title="Instructions" id="yQx-VF-iG0" customClass="InstructionsViewController" customModule="Idle_Clicker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="NAe-89-3i1">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="0YY-dk-IeC">
-                                <rect key="frame" x="20" y="50" width="374" height="323.66666666666669"/>
+                                <rect key="frame" x="20" y="50" width="374" height="267.66666666666669"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="How To Play" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kml-DP-c4b">
                                         <rect key="frame" x="0.0" y="0.0" width="374" height="30"/>
@@ -257,26 +260,15 @@
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IGM-Ja-zpt">
-                                        <rect key="frame" x="0.0" y="231.66666666666669" width="374" height="36"/>
-                                        <color key="backgroundColor" red="0.5692682094" green="0.5692682094" blue="0.5692682094" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                        <state key="normal" title="Get Started">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        </state>
-                                        <connections>
-                                            <segue destination="BYZ-38-t0r" kind="show" id="QNc-9N-Ei6"/>
-                                        </connections>
-                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9zC-d1-Esi">
-                                        <rect key="frame" x="0.0" y="287.66666666666669" width="374" height="36"/>
+                                        <rect key="frame" x="0.0" y="231.66666666666669" width="374" height="36"/>
                                         <color key="backgroundColor" red="0.5692682094" green="0.5692682094" blue="0.5692682094" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <state key="normal" title="Home">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
-                                            <segue destination="cjD-ws-wJb" kind="show" id="In3-Lm-iUQ"/>
+                                            <action selector="goHome:" destination="yQx-VF-iG0" eventType="touchUpInside" id="GQp-8q-VhS"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -293,14 +285,10 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JZd-4w-JCh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1255" y="638"/>
+            <point key="canvasLocation" x="-2591" y="532"/>
         </scene>
     </scenes>
     <resources>
         <image name="Cookie" width="974" height="962"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="6pM-Z3-hPe"/>
-        <segue reference="sEc-un-L9J"/>
-    </inferredMetricsTieBreakers>
 </document>

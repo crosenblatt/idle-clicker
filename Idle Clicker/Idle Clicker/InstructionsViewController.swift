@@ -1,5 +1,5 @@
 //
-//  SplashViewController.swift
+//  InstructionsViewController.swift
 //  Idle Clicker
 //
 //  Created by Christopher Rosenblatt on 6/15/18.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SplashViewController: UIViewController {
+class InstructionsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,7 +21,10 @@ class SplashViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
+    @IBAction func goHome(_ sender: Any) {
+        presentingViewController?.dismiss(animated: true, completion: nil)
+    }
+    
     /*
     // MARK: - Navigation
 

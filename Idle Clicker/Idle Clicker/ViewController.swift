@@ -123,6 +123,11 @@ class ViewController: UIViewController {
         self.present(alert, animated: true, completion: nil)
     }
     
+    //Home button
+    @IBAction func goHome(_ sender: Any) {
+        presentingViewController?.dismiss(animated: true, completion: nil)
+    }
+    
     //Reset Player
     func resetConfirmed(alert: UIAlertAction!) {
         player = Player(cps: 0, cpc: 0.1, totalCookies: 0, level: 0, upgradesOwned: [Int](repeating: 0, count: 2))
