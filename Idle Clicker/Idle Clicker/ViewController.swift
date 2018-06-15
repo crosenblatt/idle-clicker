@@ -34,7 +34,6 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        FirebaseApp.configure()
         
         //Load
         if loadPlayer() != nil {
