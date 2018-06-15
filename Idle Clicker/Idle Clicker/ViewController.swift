@@ -37,10 +37,15 @@ class ViewController: UIViewController {
         
         //Load
         if loadPlayer() != nil {
+            //Existing Player
             player = loadPlayer()
+        
         } else {
-            player = Player(cps: 0, cpc: 0.1, totalCookies: 0, level: 0, upgradesOwned: [Int](repeatElement(0, count: 2)))
+            //Create Player
+            player = Player(name: "default", cps: 0, cpc: 0.1, totalCookies: 0, level: 0, upgradesOwned: [Int](repeatElement(0, count: 2)))
         }
+        
+        print(player!.name!)
         
         //Set Labels
         updateCPC()
@@ -87,7 +92,7 @@ class ViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
-
+    
     //MARK: IBActions and Button Taps
     @IBAction func cookieClick(_ sender: Any) {
         //Play Sound
@@ -123,6 +128,25 @@ class ViewController: UIViewController {
         alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
         self.present(alert, animated: true, completion: nil)
     }
+
+    /*
+    func createNewPlayer() -> String {
+        //Set Username
+        var username:String?
+        let nameAlert = UIAlertController(title: "Create Username", message: nil, preferredStyle: UIAlertControllerStyle.alert)
+        
+        nameAlert.addTextField { (textField) in
+            textField.placeholder = "Username"
+        }
+        
+        let submitAction = UIAlertAction(title: "Submit", style: .default) { (alert) in
+            username = nameAlert.textFields![0].text
+        }
+        
+        nameAlert.addAction(submitAction)
+        navigationController?.topViewController!.present(nameAlert, animated: true, completion: nil)
+        return username!
+    }*/
     
     //Home button
     @IBAction func goHome(_ sender: Any) {
@@ -131,7 +155,7 @@ class ViewController: UIViewController {
     
     //Reset Player
     func resetConfirmed(alert: UIAlertAction!) {
-        player = Player(cps: 0, cpc: 0.1, totalCookies: 0, level: 0, upgradesOwned: [Int](repeating: 0, count: 2))
+        player = Player(name: player!.name!, cps: 0, cpc: 0.1, totalCookies: 0, level: 0, upgradesOwned: [Int](repeating: 0, count: 2))
         updateTotal()
         updateCPS()
         updateCPC()
@@ -181,7 +205,7 @@ class ViewController: UIViewController {
     
     func levelUpConfirmed(alert: UIAlertAction!) {
         let level = player!.level!
-        player = Player(cps: 0, cpc: 0.1, totalCookies: 0, level: level + 1, upgradesOwned: [Int](repeating: 0, count: 2))
+        player = Player(name: player!.name!, cps: 0, cpc: 0.1, totalCookies: 0, level: level + 1, upgradesOwned: [Int](repeating: 0, count: 2))
         updateTotal()
         updateCPC()
         updateCPS()
@@ -249,6 +273,7 @@ class ViewController: UIViewController {
 
 //MARK: Extra Classes
 class Player: NSObject, NSCoding {
+    var name:String?
     var cps:Float?
     var cpc:Float?
     var level:Int?
@@ -258,7 +283,8 @@ class Player: NSObject, NSCoding {
     static let DocumentsDirectory = FileManager().urls(for: .documentDirectory, in: .userDomainMask).first!
     static let ArchiveURL = DocumentsDirectory.appendingPathComponent("player")
     
-    init(cps: Float, cpc: Float, totalCookies: Float, level: Int, upgradesOwned: [Int]) {
+    init(name: String, cps: Float, cpc: Float, totalCookies: Float, level: Int, upgradesOwned: [Int]) {
+        self.name = name
         self.cps = cps
         self.cpc = cpc
         self.level = level
@@ -268,6 +294,7 @@ class Player: NSObject, NSCoding {
     
     //MARK: NSCoding
     func encode(with aCoder: NSCoder) {
+        aCoder.encode(name, forKey: "name")
         aCoder.encode(cps, forKey: "cps")
         aCoder.encode(cpc, forKey: "cpc")
         aCoder.encode(level, forKey: "level")
@@ -276,6 +303,7 @@ class Player: NSObject, NSCoding {
     }
     
     required init?(coder aDecoder: NSCoder) {
+        self.name = aDecoder.decodeObject(forKey: "name") as? String
         self.cps = aDecoder.decodeObject(forKey: "cps") as? Float
         self.cpc = aDecoder.decodeObject(forKey: "cpc") as? Float
         self.level = aDecoder.decodeObject(forKey: "level") as? Int
