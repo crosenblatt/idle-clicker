@@ -45,7 +45,10 @@ class ViewController: UIViewController {
             player = Player(name: "default", cps: 0, cpc: 0.1, totalCookies: 0, level: 0, upgradesOwned: [Int](repeatElement(0, count: 2)))
         }
         
-        print(player!.name!)
+        print("calling")
+        var un = createNewPlayer()
+        print(un)
+        print("done")
         
         //Set Labels
         updateCPC()
@@ -129,10 +132,9 @@ class ViewController: UIViewController {
         self.present(alert, animated: true, completion: nil)
     }
 
-    /*
+    
     func createNewPlayer() -> String {
         //Set Username
-        var username:String?
         let nameAlert = UIAlertController(title: "Create Username", message: nil, preferredStyle: UIAlertControllerStyle.alert)
         
         nameAlert.addTextField { (textField) in
@@ -140,13 +142,14 @@ class ViewController: UIViewController {
         }
         
         let submitAction = UIAlertAction(title: "Submit", style: .default) { (alert) in
-            username = nameAlert.textFields![0].text
+            return nameAlert.textFields![0].text!
         }
         
         nameAlert.addAction(submitAction)
-        navigationController?.topViewController!.present(nameAlert, animated: true, completion: nil)
-        return username!
-    }*/
+        self.present(nameAlert, animated: true, completion: nil)
+        
+        return ""
+    }
     
     //Home button
     @IBAction func goHome(_ sender: Any) {
