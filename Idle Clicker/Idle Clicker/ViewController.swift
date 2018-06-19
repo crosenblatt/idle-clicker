@@ -39,16 +39,11 @@ class ViewController: UIViewController {
         if loadPlayer() != nil {
             //Existing Player
             player = loadPlayer()
-        
         } else {
             //Create Player
-            player = Player(name: "default", cps: 0, cpc: 0.1, totalCookies: 0, level: 0, upgradesOwned: [Int](repeatElement(0, count: 2)))
+            player = Player(name: "", cps: 0, cpc: 0.1, totalCookies: 0, level: 0, upgradesOwned: [Int](repeatElement(0, count: 2)))
+            createNewPlayer()
         }
-        
-        print("calling")
-        var un = createNewPlayer()
-        print(un)
-        print("done")
         
         //Set Labels
         updateCPC()
@@ -133,22 +128,23 @@ class ViewController: UIViewController {
     }
 
     
-    func createNewPlayer() -> String {
+    func createNewPlayer() {
         //Set Username
         let nameAlert = UIAlertController(title: "Create Username", message: nil, preferredStyle: UIAlertControllerStyle.alert)
         
-        nameAlert.addTextField { (textField) in
+        nameAlert.addTextField(configurationHandler: { (textField) in
             textField.placeholder = "Username"
-        }
+        })
+    
         
         let submitAction = UIAlertAction(title: "Submit", style: .default) { (alert) in
-            return nameAlert.textFields![0].text!
+            let n = nameAlert.textFields![0].text!
+            self.player!.name! = n
+            print("Name changed to: \(self.player!.name!)")
         }
         
         nameAlert.addAction(submitAction)
         self.present(nameAlert, animated: true, completion: nil)
-        
-        return ""
     }
     
     //Home button
