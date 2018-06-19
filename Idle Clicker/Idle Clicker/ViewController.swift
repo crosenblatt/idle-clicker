@@ -39,6 +39,7 @@ class ViewController: UIViewController {
         if loadPlayer() != nil {
             //Existing Player
             player = loadPlayer()
+            self.title = "\(player!.name!)'s Bakery"
         } else {
             //Create Player
             player = Player(name: "", cps: 0, cpc: 0.1, totalCookies: 0, level: 0, upgradesOwned: [Int](repeatElement(0, count: 2)))
@@ -141,6 +142,7 @@ class ViewController: UIViewController {
             let n = nameAlert.textFields![0].text!
             self.player!.name! = n
             print("Name changed to: \(self.player!.name!)")
+            self.title = "\(self.player!.name!)'s Bakery"
         }
         
         nameAlert.addAction(submitAction)
