@@ -65,6 +65,7 @@ class ViewController: UIViewController {
         //Button Formatting
         upgradeOneButton.layer.cornerRadius = 5
         upgradeTwoButton.layer.cornerRadius = 5
+        levelUpButton.layer.cornerRadius = 5
         
         //Sound Loading
         let popURL = Bundle.main.url(forResource: "PopSound", withExtension: "flac")
