@@ -7,21 +7,21 @@
 	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
 	<string>ca-app-pub-3940256099942544/4411468910</string>
 	<key>CLIENT_ID</key>
-	<string>765704512193-r2eidrvcl00jt2jva1idmm9nc0dle4nb.apps.googleusercontent.com</string>
+	<string>52912983571-7gvmt9n11jndn6nqdho2f89svnnaj0is.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.765704512193-r2eidrvcl00jt2jva1idmm9nc0dle4nb</string>
+	<string>com.googleusercontent.apps.52912983571-7gvmt9n11jndn6nqdho2f89svnnaj0is</string>
 	<key>API_KEY</key>
-	<string>AIzaSyDo4PZJHPn3qFfS8MP5OIyQOmQQkiwg6c8</string>
+	<string>AIzaSyDdqJw4xatW3cMPQeTbrAD4nWezbWAxvzM</string>
 	<key>GCM_SENDER_ID</key>
-	<string>765704512193</string>
+	<string>52912983571</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>com.crosenblatt.Idle-Clicker</string>
+	<string>com.croseblatt.Idle-Clicker</string>
 	<key>PROJECT_ID</key>
-	<string>idle-clicker-f7446</string>
+	<string>clicker-app-cdc30</string>
 	<key>STORAGE_BUCKET</key>
-	<string>idle-clicker-f7446.appspot.com</string>
+	<string>clicker-app-cdc30.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
 	<true></true>
 	<key>IS_ANALYTICS_ENABLED</key>
@@ -33,8 +33,8 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:765704512193:ios:a9928db4e42a492e</string>
+	<string>1:52912983571:ios:e2a200c25a625a62</string>
 	<key>DATABASE_URL</key>
-	<string>https://idle-clicker-f7446.firebaseio.com</string>
+	<string>https://clicker-app-cdc30.firebaseio.com</string>
 </dict>
 </plist>

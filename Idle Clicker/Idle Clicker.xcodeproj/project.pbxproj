@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		7D452B9220D41DE200A59DEA /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D452B9120D41DE200A59DEA /* SplashViewController.swift */; };
 		7D452B9420D41DF600A59DEA /* InstructionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D452B9320D41DF600A59DEA /* InstructionsViewController.swift */; };
-		7D452B9620D428A000A59DEA /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7D452B9520D428A000A59DEA /* GoogleService-Info.plist */; };
 		7D71F07020C059080077D07D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D71F06F20C059080077D07D /* AppDelegate.swift */; };
 		7D71F07220C059080077D07D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D71F07120C059080077D07D /* ViewController.swift */; };
 		7D71F07520C059090077D07D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7D71F07320C059090077D07D /* Main.storyboard */; };
@@ -18,6 +17,7 @@
 		7DD99A4720C84DED00D94A49 /* PopSound.flac in Resources */ = {isa = PBXBuildFile; fileRef = 7DD99A4620C84DED00D94A49 /* PopSound.flac */; };
 		7DD99A4920C851AC00D94A49 /* Purchase.wav in Resources */ = {isa = PBXBuildFile; fileRef = 7DD99A4820C851AC00D94A49 /* Purchase.wav */; };
 		7DF1382E20DAA269005FA5AE /* LeaderboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DF1382D20DAA269005FA5AE /* LeaderboardViewController.swift */; };
+		7DF1383020DAB4A2005FA5AE /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7DF1382F20DAB4A2005FA5AE /* GoogleService-Info.plist */; };
 		A163914874D39F37F8B00BF4 /* Pods_Idle_Clicker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9630106012F0A7F3FADCA3A /* Pods_Idle_Clicker.framework */; };
 /* End PBXBuildFile section */
 
@@ -26,7 +26,6 @@
 		2D0FA6EC4BB275400E62251C /* Pods-Idle Clicker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Idle Clicker.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Idle Clicker/Pods-Idle Clicker.debug.xcconfig"; sourceTree = "<group>"; };
 		7D452B9120D41DE200A59DEA /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		7D452B9320D41DF600A59DEA /* InstructionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstructionsViewController.swift; sourceTree = "<group>"; };
-		7D452B9520D428A000A59DEA /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		7D71F06C20C059080077D07D /* Idle Clicker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Idle Clicker.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7D71F06F20C059080077D07D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7D71F07120C059080077D07D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -36,7 +35,8 @@
 		7D71F07B20C0590B0077D07D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7DD99A4620C84DED00D94A49 /* PopSound.flac */ = {isa = PBXFileReference; lastKnownFileType = file; path = PopSound.flac; sourceTree = "<group>"; };
 		7DD99A4820C851AC00D94A49 /* Purchase.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Purchase.wav; sourceTree = "<group>"; };
-		7DF1382D20DAA269005FA5AE /* LeaderboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LeaderboardViewController.swift; path = "Idle Clicker/LeaderboardViewController.swift"; sourceTree = "<group>"; };
+		7DF1382D20DAA269005FA5AE /* LeaderboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderboardViewController.swift; sourceTree = "<group>"; };
+		7DF1382F20DAB4A2005FA5AE /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		C9630106012F0A7F3FADCA3A /* Pods_Idle_Clicker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Idle_Clicker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -55,7 +55,6 @@
 		7D71F06320C059080077D07D = {
 			isa = PBXGroup;
 			children = (
-				7DF1382D20DAA269005FA5AE /* LeaderboardViewController.swift */,
 				7D71F06E20C059080077D07D /* Idle Clicker */,
 				7D71F06D20C059080077D07D /* Products */,
 				C20C5BC390A7216C0309A7A7 /* Pods */,
@@ -80,10 +79,11 @@
 				7D71F07120C059080077D07D /* ViewController.swift */,
 				7D452B9120D41DE200A59DEA /* SplashViewController.swift */,
 				7D452B9320D41DF600A59DEA /* InstructionsViewController.swift */,
+				7DF1382D20DAA269005FA5AE /* LeaderboardViewController.swift */,
 				7D71F07320C059090077D07D /* Main.storyboard */,
 				7D71F07620C0590B0077D07D /* Assets.xcassets */,
 				7D71F07820C0590B0077D07D /* LaunchScreen.storyboard */,
-				7D452B9520D428A000A59DEA /* GoogleService-Info.plist */,
+				7DF1382F20DAB4A2005FA5AE /* GoogleService-Info.plist */,
 				7D71F07B20C0590B0077D07D /* Info.plist */,
 			);
 			path = "Idle Clicker";
@@ -171,7 +171,7 @@
 				7D71F07720C0590B0077D07D /* Assets.xcassets in Resources */,
 				7DD99A4920C851AC00D94A49 /* Purchase.wav in Resources */,
 				7D71F07520C059090077D07D /* Main.storyboard in Resources */,
-				7D452B9620D428A000A59DEA /* GoogleService-Info.plist in Resources */,
+				7DF1383020DAB4A2005FA5AE /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -102,7 +102,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="vnI-A7-bMB">
-                                <rect key="frame" x="20" y="150" width="335" height="414"/>
+                                <rect key="frame" x="20" y="120" width="335" height="414"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name | Level" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Us-fH-SbB">
                                         <rect key="frame" x="0.0" y="0.0" width="335" height="24"/>
@@ -172,15 +172,42 @@
                                     </label>
                                 </subviews>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dAl-iu-wjv">
+                                <rect key="frame" x="20" y="581" width="335" height="36"/>
+                                <color key="backgroundColor" red="0.5692682094" green="0.5692682094" blue="0.5692682094" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="Home">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="goHome:" destination="yQx-VF-iG0" eventType="touchUpInside" id="9Cm-SJ-jm8"/>
+                                    <action selector="goHome:" destination="cGF-NW-JXX" eventType="touchUpInside" id="Ugq-mf-VZf"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.32852089410000002" blue="0.57488495110000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="eXA-eK-m5B" firstAttribute="trailing" secondItem="vnI-A7-bMB" secondAttribute="trailing" constant="20" id="Bjh-xg-7Xf"/>
+                            <constraint firstItem="eXA-eK-m5B" firstAttribute="trailing" secondItem="dAl-iu-wjv" secondAttribute="trailing" constant="20" id="CgI-aa-EmA"/>
                             <constraint firstItem="vnI-A7-bMB" firstAttribute="leading" secondItem="eXA-eK-m5B" secondAttribute="leading" constant="20" id="F9i-7d-KlS"/>
-                            <constraint firstItem="vnI-A7-bMB" firstAttribute="top" secondItem="eXA-eK-m5B" secondAttribute="top" constant="130" id="PcP-KJ-tgJ"/>
+                            <constraint firstItem="dAl-iu-wjv" firstAttribute="leading" secondItem="eXA-eK-m5B" secondAttribute="leading" constant="20" id="I3K-uK-4VZ"/>
+                            <constraint firstItem="vnI-A7-bMB" firstAttribute="top" secondItem="eXA-eK-m5B" secondAttribute="top" constant="100" id="PcP-KJ-tgJ"/>
+                            <constraint firstItem="eXA-eK-m5B" firstAttribute="bottom" secondItem="dAl-iu-wjv" secondAttribute="bottom" constant="50" id="RFO-jg-hBp"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="eXA-eK-m5B"/>
                     </view>
+                    <connections>
+                        <outlet property="number1" destination="r5W-gv-tTH" id="z0y-zH-QCb"/>
+                        <outlet property="number10" destination="uSc-AR-kvw" id="XFx-Sf-a0H"/>
+                        <outlet property="number2" destination="PYr-ry-D0p" id="ejU-Us-1nb"/>
+                        <outlet property="number3" destination="I02-Wf-4R7" id="HMA-Tz-mn6"/>
+                        <outlet property="number4" destination="qFx-oz-Byc" id="KnF-aT-bi0"/>
+                        <outlet property="number5" destination="rB6-cA-YLE" id="f2u-W4-RBv"/>
+                        <outlet property="number6" destination="Zfh-lj-cj1" id="bZR-Nt-t9O"/>
+                        <outlet property="number7" destination="N6Y-SS-gpy" id="dF9-zo-lrE"/>
+                        <outlet property="number8" destination="kWJ-BF-VYE" id="aY2-qh-4po"/>
+                        <outlet property="number9" destination="27A-Xa-ja2" id="7OM-9f-tif"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7Rp-xM-FE5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

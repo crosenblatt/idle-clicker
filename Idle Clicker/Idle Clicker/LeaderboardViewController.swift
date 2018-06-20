@@ -7,12 +7,23 @@
 //
 
 import UIKit
+import FirebaseDatabase
 
 class LeaderboardViewController: UIViewController {
-
+    @IBOutlet weak var number1: UILabel!
+    @IBOutlet weak var number2: UILabel!
+    @IBOutlet weak var number3: UILabel!
+    @IBOutlet weak var number4: UILabel!
+    @IBOutlet weak var number5: UILabel!
+    @IBOutlet weak var number6: UILabel!
+    @IBOutlet weak var number7: UILabel!
+    @IBOutlet weak var number8: UILabel!
+    @IBOutlet weak var number9: UILabel!
+    @IBOutlet weak var number10: UILabel!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
     }
 
@@ -21,7 +32,10 @@ class LeaderboardViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
+    @IBAction func goHome(_ sender: Any) {
+        presentingViewController?.dismiss(animated: true, completion: nil)
+    }
+    
     /*
     // MARK: - Navigation
 

@@ -10,6 +10,7 @@ import UIKit
 import os.log
 import AVFoundation
 import Firebase
+import FirebaseDatabase
 
 class ViewController: UIViewController {
     
@@ -31,9 +32,12 @@ class ViewController: UIViewController {
     var saveTimer = Timer()
     var popPlayer:AVAudioPlayer!
     var purchasePlayer:AVAudioPlayer!
+    var ref:DatabaseReference?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        FirebaseApp.configure()
+        ref = Database.database().reference()
         
         //Load
         if loadPlayer() != nil {
@@ -266,6 +270,8 @@ class ViewController: UIViewController {
         } else {
             print("save failed")
         }
+        
+        self.ref?.child("users").child(player!.name!).setValue(["Level":player!.level!])
     }
     
     private func loadPlayer() -> Player? {
