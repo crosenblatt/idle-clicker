@@ -36,7 +36,13 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        FirebaseApp.configure()
+        
+        //Firebase Configuration
+        
+        if FirebaseApp.app() == nil {
+            FirebaseApp.configure()
+        }
+    
         ref = Database.database().reference()
         
         //Load
@@ -271,7 +277,7 @@ class ViewController: UIViewController {
             print("save failed")
         }
         
-        self.ref?.child("users").child(player!.name!).setValue(["Level":player!.level!])
+        self.ref?.child("users").setValue([player!.name!:player!.level!])
     }
     
     private func loadPlayer() -> Player? {
