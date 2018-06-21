@@ -17,7 +17,7 @@ class LeaderboardViewController: UIViewController, UITableViewDelegate, UITableV
     var databaseHandle:DatabaseHandle?
     
     var data = [String:Int]()
-    var postData = [String](repeating: "CJR 0", count: 10)
+    var postData = [String]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,6 +32,14 @@ class LeaderboardViewController: UIViewController, UITableViewDelegate, UITableV
         }
 
         ref = Database.database().reference()
+        
+        databaseHandle = ref?.child("users").observe(.childAdded, with: { (snapshot) in
+            let name = snapshot.key as String
+            let lvl = snapshot.value as! Int
+            
+            self.postData.append("\(name) \(lvl)")
+            self.tableView.reloadData()
+        })
     }
     
     override func didReceiveMemoryWarning() {
