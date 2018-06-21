@@ -10,26 +10,21 @@ import UIKit
 import Firebase
 import FirebaseDatabase
 
-class LeaderboardViewController: UIViewController {
-    @IBOutlet weak var number1: UILabel!
-    @IBOutlet weak var number2: UILabel!
-    @IBOutlet weak var number3: UILabel!
-    @IBOutlet weak var number4: UILabel!
-    @IBOutlet weak var number5: UILabel!
-    @IBOutlet weak var number6: UILabel!
-    @IBOutlet weak var number7: UILabel!
-    @IBOutlet weak var number8: UILabel!
-    @IBOutlet weak var number9: UILabel!
-    @IBOutlet weak var number10: UILabel!
+class LeaderboardViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    @IBOutlet weak var tableView: UITableView!
     
     var ref:DatabaseReference?
     var databaseHandle:DatabaseHandle?
     
     var data = [String:Int]()
-    var dataArray = [String](repeating: "CJR 0", count: 10)
+    var postData = [String](repeating: "CJR 0", count: 10)
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //Table View Setup
+        tableView.delegate = self
+        tableView.dataSource = self
         
         //Firebase Configuration
         if FirebaseApp.app() == nil {
@@ -37,20 +32,6 @@ class LeaderboardViewController: UIViewController {
         }
 
         ref = Database.database().reference()
-        
-        databaseHandle = ref?.child("users").observe(.value, with: { (snapshot) in
-            
-            let lvl = snapshot.value as? Int
-            let name = snapshot.key as? String
-            
-            if let aName = name {
-                self.data[aName] = lvl
-                self.loadBoard()
-            }
-        })
-        
-        
-        // Do any additional setup after loading the view.
     }
     
     override func didReceiveMemoryWarning() {
@@ -63,22 +44,25 @@ class LeaderboardViewController: UIViewController {
     }
     
     func loadBoard() {
+        var i = 0
         for (name, lvl) in data {
-            self.dataArray += ["\(name) \(lvl)"]
+            self.postData[i] = "\(name) \(lvl)"
+            i += 1
         }
+    }
+    
+    //Table View Stuff
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return postData.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "PostCell")
+        cell?.textLabel?.textColor = UIColor(white: 1.0, alpha: 1.0)
+        cell?.textLabel?.textAlignment = NSTextAlignment.center
+        cell?.textLabel?.text = postData[indexPath.row]
         
-        number1.text = dataArray[0]
-        number2.text = dataArray[1]
-        number3.text = dataArray[2]
-        number4.text = dataArray[3]
-        number5.text = dataArray[4]
-        number6.text = dataArray[5]
-        number7.text = dataArray[6]
-        number8.text = dataArray[7]
-        number9.text = dataArray[8]
-        number10.text = dataArray[9]
-        
-        print(self.dataArray)
+        return cell!
     }
     
     /*

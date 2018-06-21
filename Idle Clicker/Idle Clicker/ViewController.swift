@@ -172,6 +172,7 @@ class ViewController: UIViewController {
         updateCPS()
         updateCPC()
         updateLevel()
+        createNewPlayer()
         savePlayer()
     }
     
@@ -277,7 +278,7 @@ class ViewController: UIViewController {
             print("save failed")
         }
         
-        self.ref?.child("users").setValue([player!.name!:player!.level!])
+        self.ref?.child("users").child(player!.name!).setValue(player!.level!)
     }
     
     private func loadPlayer() -> Player? {
