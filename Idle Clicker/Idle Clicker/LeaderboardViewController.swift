@@ -51,14 +51,6 @@ class LeaderboardViewController: UIViewController, UITableViewDelegate, UITableV
         presentingViewController?.dismiss(animated: true, completion: nil)
     }
     
-    func loadBoard() {
-        var i = 0
-        for (name, lvl) in data {
-            self.postData[i] = "\(name) \(lvl)"
-            i += 1
-        }
-    }
-    
     //Table View Stuff
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return postData.count
